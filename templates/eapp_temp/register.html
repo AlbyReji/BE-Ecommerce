@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+
+{% block title %}Register {% endblock title %}
+
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Register</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+  </nav><br>
+  <center>
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>sername: </label>
+        {{form.username}}<br><br>
+        <label>Email</label>
+        {{form.email}}<br><br>
+        <label>Phone Number</label>
+        {{form.phone_number}}<br><br>
+        <label>Password</label>
+        {{form.password}}<br><br>
+        <label>Confirm Password</label>
+        {{form.password2}}<br><br>
+
+        <input type="submit" value="submit">
+    </form>
+    
+
+  </center>
+
+
+{% endblock content %}

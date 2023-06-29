@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Detail{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Userhome</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  {% if user.is_authenticated %}
+  <li class="nav-item" style="margin-left: 1100px;">
+    <a class="nav-link text-white" href="{% url 'cart_page' %}">Cart</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href="{% url 'order_view' %}">Orders</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href="{% url 'userprofile' %}">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href="{% url 'logout' %}">logout</a>
+  </li>
+  {% endif %}
+</nav>
+<br>
+<h5><i>Welcome   {{user.username}}</i></h5>
+
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Categories</h4>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+      {% for prod in category %}
+      <div class="col-md-4 col-lg-3">
+        <div class="card my-3">
+          <img src="{{ prod.image.url }}" class="card-img-top" alt="Categories">
+          <a href="{% url 'userhome' prod.name %}">
+
+
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ prod.name }}</h5>
+              <p class="card-text">{{ prod.description }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

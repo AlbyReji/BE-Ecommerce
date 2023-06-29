@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Detail{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'adminhome' %}">Admin Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+</nav>
+<br>
+
+<center>
+    <h1>Add CAt</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="id_title">Title</label>
+        {{ form.name }}
+        <br><br>
+        <label for="id_description">Image</label>
+        {{ form.image }}
+        <br><br>
+        <label for="id_image">Description</label>
+        {{ form.description }}
+        <br><br> 
+        <input type="submit" value="Submit">
+    </form>
+</center>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block title %}Login {% endblock title %}
+
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Login</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+  </nav><br>
+  <center>
+
+    <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark btn-sm">Login</button>
+        </form>
+  </center>
+
+{% endblock content %}

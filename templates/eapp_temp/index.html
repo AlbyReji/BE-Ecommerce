@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Post{% endblock %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Ecommerce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 1250px;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ">
+          <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'register' %}">Register <span class="sr-only"></span></a>
+          </li>
+  
+  </nav><br>
+   <center>  <h1>Buy any products</h1></center>
+
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Categories</h4>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+      {% for prod in category %}
+      <div class="col-md-4 col-lg-3">
+        <div class="card my-3">
+          <img src="{{ prod.image.url }}" class="card-img-top" alt="Categories">
+          <a href="{% url 'userhome' prod.name %}">
+
+
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ prod.name }}</h5>
+              <p class="card-text">{{ prod.description }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+  
+ 
+{% endblock %}
